@@ -1,0 +1,12 @@
+<div class="titlebar">
+  <div class="d-flex justify-content-end align-items-center">
+    <ul class="breadcrumb mr-auto">
+      <li *ngFor="let breadcrumb of breadcrumbs" class="breadcrumb-item" [ngClass]="{'first': breadcrumbs.length == 1}">
+        <a *ngIf="breadcrumb.link; else elseBlock" [routerLink]="breadcrumb.link">{{breadcrumb.title}}</a>
+        <ng-template #elseBlock>{{breadcrumb.title}}</ng-template>
+      </li>
+    </ul>
+
+    <ng-content></ng-content>
+  </div>
+</div>

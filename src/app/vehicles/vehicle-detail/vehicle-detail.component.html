@@ -1,0 +1,42 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container-fluid">
+    <h1 class="display-5">{{vehicle.name}}</h1>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row p-1">
+    <div class="col">
+      <div *ngIf="vehicle" class="card">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-block">
+          <h4 class="card-title">{{vehicle.name}}</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          {{vehicle.name}}
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <dl class="row">
+              <dt class="col-4">Year</dt>
+              <dd class="col-8">{{vehicle.year}}</dd>
+            </dl>
+          </li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

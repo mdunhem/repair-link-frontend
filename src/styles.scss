@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+
+html,
+body {
+  height: 100%;
+}
+
+// body {
+//   padding-top: 5rem;
+// }
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.card {
+  box-shadow: 0 2px 5px rgba(0,0,0,.26);
+}
+
+.has-shadow {
+  box-shadow: 0 2px 5px rgba(0,0,0,.26);
+}
+
+.sidenav__container {
+    background-color: $gray-lightest;
+    height: 100%;
+    // position: fixed;
+    // top: 51px;
+    // bottom: 0;
+    // left: 0;
+    // z-index: 1000;
+    display: block;
+    // padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid $gray;
+}

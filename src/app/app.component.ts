@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'repair works!';
+  navItems = {
+    items: [
+      { name: 'Dashboard', route: '/dashboard' },
+      { name: 'Vehicles', route: '/vehicles' }
+    ]
+  }
 }

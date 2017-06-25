@@ -1,0 +1,33 @@
+@import '../../../variables';
+
+:host {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+}
+
+.two-column-layout__row {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 100%;
+}
+
+.two-column-layout--right-border {
+    border-right: solid 1px $main-layout-border-color;
+}
+
+.two-column-layout--padded {
+    padding: 1rem;
+}
+
+.two-column-layout--no-padding {
+    padding: 0;
+}
+
+.two-column-layout_top_bottom-padded {
+    padding: 1rem 0;
+}
+
+.bg-primary {
+    background-color: $brand-primary;
+}

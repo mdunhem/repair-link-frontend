@@ -1,0 +1,18 @@
+@import '../../../variables';
+
+:host {
+    padding: 1rem 0;
+}
+
+.nav-link {
+    color: $gray-dark;
+}
+
+.nav-item {
+    border-right: 3px solid transparent;
+
+    &.active {
+        background-color: $gray-lighter;
+        border-right-color: lighten($brand-primary, 10%);
+    }
+}
