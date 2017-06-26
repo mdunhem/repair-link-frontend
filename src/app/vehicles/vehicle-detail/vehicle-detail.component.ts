@@ -16,18 +16,13 @@ export class VehicleDetailComponent implements OnInit {
 
   vehicle: Vehicle;
 
-  breadcrumbs = [
-    {title: 'All Vehicles'},
-    {title: 'Vehicle', link: '/vehicles'}
-  ];
-
-  constructor(private route: ActivatedRoute, private router: Router,private vehiclesService: VehiclesService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private vehiclesService: VehiclesService) { }
 
   ngOnInit() {
     this.route.params.switchMap((params: Params) => this.vehiclesService.getVehicle(+params['vin']))
       .subscribe((vehicle: Vehicle) => {
         this.vehicle = vehicle;
-        this.breadcrumbs.push({title: this.vehicle.model});
+        this.vehiclesService.selectVehicle(vehicle);
       });
   }
 

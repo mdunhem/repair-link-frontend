@@ -23,6 +23,8 @@ import { TitlebarComponent } from './titlebar/titlebar.component';
     SidenavComponent,
     MainLayoutComponent,
     TitlebarComponent
+  ],
+  providers: [
   ]
 })
 export class SharedModule { }

@@ -15,6 +15,12 @@ let VEHCILES: Array<Vehicle> = [
 @Injectable()
 export class VehiclesService {
 
+  private _selectedVehicle = new Subject<Vehicle>();
+
+  public get selectedVehicle() {
+    return this._selectedVehicle.asObservable();
+  }
+
   constructor() { }
 
   public getVehicles(): Observable<Array<Vehicle>> {
@@ -24,11 +30,15 @@ export class VehiclesService {
   public getVehicle(vin: number): Observable<Vehicle> {
     let vehicle;
     VEHCILES.forEach(v => {
-      if (v.vin == vin) {
+      if (v.vin === vin) {
         vehicle = v;
       }
     });
     return Observable.of(vehicle);
+  }
+
+  public selectVehicle(vehicle: Vehicle) {
+    this._selectedVehicle.next(vehicle);
   }
 
 }
