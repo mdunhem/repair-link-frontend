@@ -10,7 +10,8 @@ export class AppComponent {
   navItems = {
     items: [
       { name: 'Dashboard', route: '/dashboard' },
-      { name: 'Vehicles', route: '/vehicles' }
+      { name: 'Vehicles', route: '/vehicles' },
+      { name: 'Users', route: '/users' }
     ]
   }
 }
