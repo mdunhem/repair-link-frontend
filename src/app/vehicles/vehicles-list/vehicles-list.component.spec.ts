@@ -11,7 +11,7 @@ import { Vehicle } from "../shared/vehicle";
 export class VehiclesTestService {
 
   public getVehicles(): Observable<Array<Vehicle>> {
-    return Observable.of([new Vehicle({ vin: 0, year: 2003, make: 'Toyota', model: 'Corolla' })]);
+    return Observable.of([new Vehicle({id: 1, vin: "0", year: 2003, make: "Toyota", model: "Corolla" })]);
   }
 
 }

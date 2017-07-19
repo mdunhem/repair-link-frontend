@@ -7,43 +7,47 @@
 // }
 
 export interface VehicleParams {
-    vin: number;
-    year: number;
-    make: string;
-    model: string;
-    color?: string;
-    trim?: string;
-    odometer?: number;
-    licensePlate?: string;
-    bodyType?: string;
+    id: Number;
+    vin: String;
+    year: Number;
+    make: String;
+    model: String;
+    color?: String;
+    trim?: String;
+    odometer?: Number;
+    licensePlate?: String;
+    bodyType?: String;
 }
 
 export class Vehicle {
 
-    vin: number;
+    id: Number;
 
-    year: number;
+    vin: String;
 
-    make: string;
+    year: Number;
 
-    model: string;
+    make: String;
 
-    color: string | null;
+    model: String;
 
-    trim: string | null;
+    color: String | null;
 
-    odometer: number | null;
+    trim: String | null;
 
-    licensePlate: string | null;
+    odometer: Number | null;
 
-    bodyType: string | null;
+    licensePlate: String | null;
 
-    get name(): string {
+    bodyType: String | null;
+
+    get name(): String {
         return `${this.year} ${this.make} ${this.model}`;
     }
 
     constructor( params: VehicleParams ) {
-        let {vin, year, make, model, color, trim, odometer, licensePlate, bodyType} = params;
+        let {id, vin, year, make, model, color, trim, odometer, licensePlate, bodyType} = params;
+        this.id = id;
         this.vin = vin;
         this.year = year;
         this.make = make;

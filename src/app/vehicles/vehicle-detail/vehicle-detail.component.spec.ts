@@ -17,7 +17,7 @@ export class VehiclesTestService {
   }
 
   public getVehicle(vin: number): Observable<Vehicle> {
-    return Observable.of(new Vehicle({ vin: 0, year: 2003, make: 'Toyota', model: 'Corolla' }));
+    return Observable.of(new Vehicle({id: 1, vin: "0", year: 2003, make: "Toyota", model: "Corolla" }));
   }
 
   public selectVehicle(vehicle: Vehicle) {

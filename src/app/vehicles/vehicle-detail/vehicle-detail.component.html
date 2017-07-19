@@ -1,6 +1,6 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container-fluid">
-    <h1 class="display-5">{{vehicle.name}}</h1>
+    <h1 *ngIf="vehicle" class="display-5">{{vehicle.name}}</h1>
   </div>
 </div>
 
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="col">
-      <div class="card">
+      <div *ngIf="vehicle" class="card">
         <div class="card-header">
           {{vehicle.name}}
         </div>

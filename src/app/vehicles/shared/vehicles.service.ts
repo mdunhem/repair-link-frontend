@@ -1,19 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
 import { Observable, Subject } from "rxjs";
-import 'rxjs/observable/of';
 
+import { environment } from "../../../environments/environment";
 import { Vehicle  } from "./vehicle";
-
-let VEHICLE_UUID = 0;
-
-let VEHCILES: Array<Vehicle> = [
-  new Vehicle({ vin: VEHICLE_UUID++, year: 2003, make: 'Toyota', model: 'Corolla' }),
-  new Vehicle({ vin: VEHICLE_UUID++, year: 2005, make: 'Acura', model: 'TL' }),
-  new Vehicle({ vin: VEHICLE_UUID++, year: 2017, make: 'Honda', model: 'Civic' })
-];
 
 @Injectable()
 export class VehiclesService {
+
+  private apiUrl = environment.apiUrl;
 
   private _selectedVehicle = new Subject<Vehicle>();
 
@@ -21,20 +16,24 @@ export class VehiclesService {
     return this._selectedVehicle.asObservable();
   }
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   public getVehicles(): Observable<Array<Vehicle>> {
-    return Observable.of(VEHCILES);
+    return this.http.get<any[]>(`${this.apiUrl}/vehicles`)
+      .map<any[], Vehicle[]>((values, index) => {
+        let vehicles = new Array<Vehicle>();
+        values.forEach(value => {
+          vehicles.push(new Vehicle(value));
+        });
+        return vehicles;
+      });
   }
 
-  public getVehicle(vin: number): Observable<Vehicle> {
-    let vehicle;
-    VEHCILES.forEach(v => {
-      if (v.vin === vin) {
-        vehicle = v;
-      }
-    });
-    return Observable.of(vehicle);
+  public getVehicle(id: Number): Observable<Vehicle> {
+    return this.http.get<any>(`${this.apiUrl}/vehicles/${id}`)
+      .map<any, Vehicle>((value, index) => {
+        return new Vehicle(value);
+      });
   }
 
   public selectVehicle(vehicle: Vehicle) {
