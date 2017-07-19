@@ -19,7 +19,7 @@ export class VehicleDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private vehiclesService: VehiclesService) { }
 
   ngOnInit() {
-    this.route.params.switchMap((params: Params) => this.vehiclesService.getVehicle(params['vin']))
+    this.route.params.switchMap((params: Params) => this.vehiclesService.getVehicle(params['id']))
       .subscribe((vehicle: Vehicle) => {
         console.log(vehicle);
         this.vehicle = vehicle;

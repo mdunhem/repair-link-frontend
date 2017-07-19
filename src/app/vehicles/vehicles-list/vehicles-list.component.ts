@@ -31,7 +31,7 @@ export class VehiclesListComponent implements OnInit {
    * selectVehicle
    */
   public selectVehicle(vehicle: Vehicle) {
-    this.router.navigate([vehicle.vin], { relativeTo: this.route });
+    this.router.navigate([vehicle.id], { relativeTo: this.route });
   }
 
 }

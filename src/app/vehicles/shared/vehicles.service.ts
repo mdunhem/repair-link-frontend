@@ -29,8 +29,8 @@ export class VehiclesService {
       });
   }
 
-  public getVehicle(vin: String): Observable<Vehicle> {
-    return this.http.get<any>(`${this.apiUrl}/vehicles/${vin}`)
+  public getVehicle(id: Number): Observable<Vehicle> {
+    return this.http.get<any>(`${this.apiUrl}/vehicles/${id}`)
       .map<any, Vehicle>((value, index) => {
         return new Vehicle(value);
       });

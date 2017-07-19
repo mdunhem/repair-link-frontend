@@ -11,7 +11,7 @@
       <tr *ngFor="let vehicle of vehicles | async" (click)="selectVehicle(vehicle)">
         <td>{{vehicle.year}}</td>
         <td>{{vehicle.make}}</td>
-        <td>{{vehicle.vehicleModel}}</td>
+        <td>{{vehicle.model}}</td>
       </tr>
     </tbody>
   </table>
