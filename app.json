@@ -4,6 +4,7 @@
     "postdeploy": "ng build"
   },
   "env": {
+    "NODE_ENV": "dev"
   },
   "formation": {
   },
