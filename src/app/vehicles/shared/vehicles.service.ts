@@ -21,7 +21,7 @@ export class VehiclesService {
   public getVehicles(): Observable<Array<Vehicle>> {
     return this.http.get<any[]>(`${this.apiUrl}/vehicles`)
       .map<any[], Vehicle[]>((values, index) => {
-        let vehicles = new Array<Vehicle>();
+        const vehicles = new Array<Vehicle>();
         values.forEach(value => {
           vehicles.push(new Vehicle(value));
         });
