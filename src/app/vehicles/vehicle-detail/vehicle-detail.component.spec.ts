@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Observable, Subject } from 'rxjs';
-import 'rxjs/observable/of';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/observable/of';
 
 import { VehicleDetailComponent } from './vehicle-detail.component';
 import { VehiclesService } from '../shared/vehicles.service';
