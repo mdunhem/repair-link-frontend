@@ -12,7 +12,7 @@ import { Vehicle } from '../shared/vehicle';
 })
 export class VehiclesListComponent implements OnInit {
 
-  title: string = 'All Vehicles';
+  title = 'All Vehicles';
 
   vehicles: Observable<Array<Vehicle>>;
 

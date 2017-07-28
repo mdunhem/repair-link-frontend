@@ -9,7 +9,7 @@ import { NavItems } from '../';
 })
 export class MainLayoutComponent implements OnInit {
 
-  @Input() title: string = '';
+  @Input() title = '';
 
   @Input() navItems: NavItems = {
     items: []
