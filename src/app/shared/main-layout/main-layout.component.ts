@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { NavItems } from "../";
+import { NavItems } from '../';
 
 @Component({
   selector: 'repair-main-layout',

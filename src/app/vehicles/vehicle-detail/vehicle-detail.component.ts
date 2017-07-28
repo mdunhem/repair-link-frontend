@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute, Params } from "@angular/router";
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
-import { VehiclesService } from "../shared/vehicles.service";
-import { Vehicle } from "../shared/vehicle";
+import { VehiclesService } from '../shared/vehicles.service';
+import { Vehicle } from '../shared/vehicle';
 
 @Component({
   selector: 'repair-vehicle-detail',

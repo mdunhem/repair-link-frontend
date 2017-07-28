@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable, Subject } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
 
-import { environment } from "../../../environments/environment";
-import { Vehicle  } from "./vehicle";
+import { environment } from '../../../environments/environment';
+import { Vehicle  } from './vehicle';
 
 @Injectable()
 export class VehiclesService {

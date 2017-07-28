@@ -1,9 +1,9 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { Router, ActivatedRoute } from "@angular/router";
-import { Observable } from "rxjs/Observable";
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
-import { VehiclesService } from "../shared/vehicles.service";
-import { Vehicle } from "../shared/vehicle";
+import { VehiclesService } from '../shared/vehicles.service';
+import { Vehicle } from '../shared/vehicle';
 
 @Component({
   selector: 'repair-vehicles-list',
