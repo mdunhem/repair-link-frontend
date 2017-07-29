@@ -4,7 +4,7 @@ import 'rxjs/add/operator/filter';
 
 import { VehiclesService } from './shared/vehicles.service';
 import { Vehicle } from './shared/vehicle';
-import { Breadcrumb } from '../shared/titlebar/titlebar.component';
+import { Breadcrumb } from '../../shared/titlebar/titlebar.component';
 
 @Component({
   selector: 'repair-vehicles',

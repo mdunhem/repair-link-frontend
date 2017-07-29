@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Breadcrumb } from '../shared/titlebar/titlebar.component';
+import { Breadcrumb } from '../../shared/titlebar/titlebar.component';
 
 @Component({
   selector: 'repair-users',
