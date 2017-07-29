@@ -13,7 +13,6 @@ node {
     stage('Test') {
       sh 'npm run lint'
       sh 'npm test'
-      sh 'npm run e2e'
     }
 
     stage('Build') {
