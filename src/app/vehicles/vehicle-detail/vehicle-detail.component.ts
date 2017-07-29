@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute, Params } from "@angular/router";
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
-import { VehiclesService } from "../shared/vehicles.service";
-import { Vehicle } from "../shared/vehicle";
+import { VehiclesService } from '../shared/vehicles.service';
+import { Vehicle } from '../shared/vehicle';
 
 @Component({
   selector: 'repair-vehicle-detail',
@@ -21,7 +21,6 @@ export class VehicleDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.switchMap((params: Params) => this.vehiclesService.getVehicle(params['id']))
       .subscribe((vehicle: Vehicle) => {
-        console.log(vehicle);
         this.vehicle = vehicle;
         this.vehiclesService.selectVehicle(vehicle);
       });

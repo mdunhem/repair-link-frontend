@@ -1,17 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Observable, Subject } from "rxjs";
-import 'rxjs/observable/of';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/observable/of';
 
 import { VehiclesListComponent } from './vehicles-list.component';
-import { VehiclesService } from "../shared/vehicles.service";
-import { Vehicle } from "../shared/vehicle";
+import { VehiclesService } from '../shared/vehicles.service';
+import { Vehicle } from '../shared/vehicle';
 
 // Need to seperate this to a testing file or something...
 export class VehiclesTestService {
 
   public getVehicles(): Observable<Array<Vehicle>> {
-    return Observable.of([new Vehicle({id: 1, vin: "0", year: 2003, make: "Toyota", model: "Corolla" })]);
+    return Observable.of([new Vehicle({id: 1, vin: '0', year: 2003, make: 'Toyota', model: 'Corolla' })]);
   }
 
 }

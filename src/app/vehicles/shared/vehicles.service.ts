@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable, Subject } from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/map';
 
-import { environment } from "../../../environments/environment";
-import { Vehicle  } from "./vehicle";
+import { environment } from '../../../environments/environment';
+import { Vehicle  } from './vehicle';
 
 @Injectable()
 export class VehiclesService {
@@ -21,7 +23,7 @@ export class VehiclesService {
   public getVehicles(): Observable<Array<Vehicle>> {
     return this.http.get<any[]>(`${this.apiUrl}/vehicles`)
       .map<any[], Vehicle[]>((values, index) => {
-        let vehicles = new Array<Vehicle>();
+        const vehicles = new Array<Vehicle>();
         values.forEach(value => {
           vehicles.push(new Vehicle(value));
         });

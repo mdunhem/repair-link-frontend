@@ -46,7 +46,7 @@ export class Vehicle {
     }
 
     constructor( params: VehicleParams ) {
-        let {id, vin, year, make, model, color, trim, odometer, licensePlate, bodyType} = params;
+        const {id, vin, year, make, model, color, trim, odometer, licensePlate, bodyType} = params;
         this.id = id;
         this.vin = vin;
         this.year = year;

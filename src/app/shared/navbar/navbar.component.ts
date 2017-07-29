@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { NavItems } from "../";
+import { NavItems } from '../';
 
 @Component({
   selector: 'repair-navbar',
@@ -12,7 +12,7 @@ import { NavItems } from "../";
 })
 export class NavbarComponent implements OnInit {
 
-  @Input() title: string = 'RepairLink';
+  @Input() title = 'RepairLink';
   @Input() navItems: NavItems;
 
   constructor() { }

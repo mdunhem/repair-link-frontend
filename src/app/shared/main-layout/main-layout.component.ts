@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { NavItems } from "../";
+import { NavItems } from '../';
 
 @Component({
   selector: 'repair-main-layout',
@@ -9,7 +9,7 @@ import { NavItems } from "../";
 })
 export class MainLayoutComponent implements OnInit {
 
-  @Input() title: string = '';
+  @Input() title = '';
 
   @Input() navItems: NavItems = {
     items: []
