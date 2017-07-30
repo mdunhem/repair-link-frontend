@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class IndexComponent implements OnInit {
 
   title = 'RepairLink';
-  subTitle = 'Another test';
+  subTitle = 'CS 411 Green Team';
 
   constructor() { }
 

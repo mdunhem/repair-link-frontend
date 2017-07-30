@@ -7,9 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SingleColumnLayoutComponent implements OnInit {
 
-  @Input() title = 'Test';
-  @Input() subTitle = 'Subtitle';
-
   constructor() { }
 
   ngOnInit() {
