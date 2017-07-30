@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { NavItems } from '../';
+export interface NavItems {
+  items: { name: string, route: string }[];
+}
 
 @Component({
   selector: 'repair-navbar',
