@@ -7,6 +7,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { TitlebarComponent } from './titlebar/titlebar.component';
 import { SingleColumnLayoutComponent } from './single-column-layout/single-column-layout.component';
 import { FooterComponent } from './footer/footer.component';
+import { JumbotronComponent } from './jumbotron/jumbotron.component';
 
 @NgModule({
   imports: [
@@ -18,14 +19,16 @@ import { FooterComponent } from './footer/footer.component';
     MainLayoutComponent,
     SingleColumnLayoutComponent,
     TitlebarComponent,
-    FooterComponent
+    FooterComponent,
+    JumbotronComponent
   ],
   declarations: [
     SidenavComponent,
     MainLayoutComponent,
     TitlebarComponent,
     SingleColumnLayoutComponent,
-    FooterComponent
+    FooterComponent,
+    JumbotronComponent
   ],
   providers: [
   ]

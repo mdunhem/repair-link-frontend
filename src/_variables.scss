@@ -37,7 +37,7 @@ $main-layout-border-color: #d3d3d3;
   }
 }
 
-$background-image-url: url('../../../assets/header.jpg');
+$background-image-url: url('/assets/header.jpg');
 
 @mixin background-cover() {
     -webkit-background-size: cover;

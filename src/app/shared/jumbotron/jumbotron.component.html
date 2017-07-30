@@ -1,0 +1,10 @@
+<div class="jumbotron jumbotron-fluid" [class.feature]="feature" [class.d-flex]="feature" [class.align-items-center]="feature">
+  <div class="content" [class.feature]="feature">
+    <div class="container">
+      <h1 [class.display-1]="feature" [class.display-3]="!feature">{{ title }}</h1>
+      <hr *ngIf="feature" class="dark">
+      <h1 *ngIf="feature" class="display-3">{{ subTitle }}</h1>
+      <p *ngIf="!feature" class="lead">{{ subTitle }}</p>
+    </div>
+  </div>
+</div>
