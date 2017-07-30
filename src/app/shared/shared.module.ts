@@ -6,6 +6,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { TitlebarComponent } from './titlebar/titlebar.component';
 import { SingleColumnLayoutComponent } from './single-column-layout/single-column-layout.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -16,13 +17,15 @@ import { SingleColumnLayoutComponent } from './single-column-layout/single-colum
     SidenavComponent,
     MainLayoutComponent,
     SingleColumnLayoutComponent,
-    TitlebarComponent
+    TitlebarComponent,
+    FooterComponent
   ],
   declarations: [
     SidenavComponent,
     MainLayoutComponent,
     TitlebarComponent,
-    SingleColumnLayoutComponent
+    SingleColumnLayoutComponent,
+    FooterComponent
   ],
   providers: [
   ]

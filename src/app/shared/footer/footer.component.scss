@@ -1,0 +1,29 @@
+@import '../../../variables';
+
+footer {
+    background-color: $footer-background-color;
+    color: $footer-text-color;
+    padding: 70px 0;
+}
+
+hr {
+    border-color: $footer-hr-border-color;
+}
+
+a {
+    color: $footer-text-dark-color;
+}
+
+section {
+    padding: 30px 0 50px 0;
+    text-align: center;
+}
+
+.copyright {
+    margin: 10px 0px 20px;
+    color: $footer-text-dark-color;
+    padding: 10px 15px;
+    margin: 15px 3px;
+    line-height: 20px;
+    text-align: center;
+}

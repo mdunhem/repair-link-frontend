@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://repair-link-api.herokuapp.com/api'
+  apiUrl: 'https://repair-link-api.herokuapp.com/api',
+  projectTitle: 'RepairLink'
 };
