@@ -11,7 +11,8 @@ export class HomeComponent implements OnInit {
 
   navItems: NavItems = {
     items: [
-      { name: 'About Us', route: '/about' }
+      { name: 'About Us', route: '/about' },
+      { name: 'Log In', route: '/secure' }
     ]
   }
 
