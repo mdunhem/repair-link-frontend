@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule }   from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NavbarComponent } from './navbar/navbar.component';
@@ -15,9 +16,11 @@ import { LayoutSectionComponent } from './layout-section/layout-section.componen
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule
   ],
   exports: [
+    FormsModule,
     NavbarComponent,
     SidenavComponent,
     MainLayoutComponent,
