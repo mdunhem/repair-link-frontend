@@ -12,7 +12,8 @@ export class SecureComponent {
     items: [
       { name: 'Dashboard', route: '/secure/dashboard' },
       { name: 'Vehicles', route: '/secure/vehicles' },
-      { name: 'Users', route: '/secure/users' }
+      { name: 'Users', route: '/secure/users' },
+      { name: 'Logout', route: '/secure/logout' }
     ]
   }
 
