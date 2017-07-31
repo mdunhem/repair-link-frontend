@@ -11,11 +11,13 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Get the auth header from the service.
     const authHeader = this.auth.authHeader;
-    // Clone the request to add the new header.
-    const authReq = request.clone({ headers: request.headers.set('Authorization', authHeader) });
-    // Pass on the cloned request instead of the original request.
-    console.log(authReq);
-    return next.handle(authReq);
+    // Clone the request to add the new header. 
+    // Need to enable CORS for this to work
+    // const authReq = request.clone({ headers: request.headers.set('Authorization', authHeader) });
+
+    const authenticatedRequest = request.clone();
+    console.log(authenticatedRequest);
+    return next.handle(authenticatedRequest);
   }
 
 }

@@ -34,8 +34,10 @@ export class SecureAuthGuard implements CanActivate {
     if (this.authService.isLoggedIn) {
       return true;
     }
-    this.authService.redirectUrl = url;
-    this.router.navigate(['/secure/login'], { queryParams: { returnUrl: url }});
+    localStorage.setItem('returnUrl', url);
+    this.authService.login();
+    // this.authService.redirectUrl = url;
+    // this.router.navigate(['/secure/login'], { queryParams: { returnUrl: url }});
     return false;
   }
 }
