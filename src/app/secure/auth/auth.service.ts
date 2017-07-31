@@ -31,7 +31,7 @@ export class AuthService {
 
   login() {
     // Launches the login redirect.
-    this.oktaAuth.token.getWithRedirect({ 
+    this.oktaAuth.token.getWithRedirect({
       responseType: ['id_token', 'token'],
       scopes: ['openid', 'email', 'profile']
     });

@@ -15,7 +15,7 @@ export class SecureAuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let url: string = state.url;
+    const url: string = state.url;
 
     return this.checkLogin(url);
   }
@@ -25,7 +25,7 @@ export class SecureAuthGuard implements CanActivate {
   }
 
   canLoad(route: Route): boolean {
-    let url = `/${route.path}`;
+    const url = `/${route.path}`;
 
     return this.checkLogin(url);
   }
