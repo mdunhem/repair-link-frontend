@@ -10,7 +10,7 @@
   <a class="navbar-brand" routerLink="/">{{ title }}</a>
 
   <div #menu class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav ml-auto px-1">
+    <ul *ngIf="navItems" class="navbar-nav ml-auto px-1">
       <li *ngFor="let navItem of navItems.items" routerLinkActive="active" class="nav-item">
           <a class="nav-link" [routerLink]="[navItem.route]">{{ navItem.name }}</a>
       </li>
