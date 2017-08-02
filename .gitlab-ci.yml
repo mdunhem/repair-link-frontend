@@ -1,5 +1,9 @@
 image: mdunhem/docker-angular-jenkins:1.1.1
 
+## Hack for now to get this to work
+variables:
+  GIT_SSL_NO_VERIFY: "true"
+
 cache:
   paths:
   - node_modules/
