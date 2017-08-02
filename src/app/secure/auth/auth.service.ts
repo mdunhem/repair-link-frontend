@@ -8,14 +8,16 @@ import 'rxjs/add/operator/delay';
 
 import * as OktaAuth from '@okta/okta-auth-js/dist/okta-auth-js.min.js';
 
+import { environment } from '../../../environments/environment';
+
 @Injectable()
 export class AuthService {
 
   private oktaAuth = new OktaAuth({
-    url: 'https://dev-763801.oktapreview.com/',
-    clientId: '0oabg1qdk8K1paWkI0h7',
-    issuer: 'https://dev-763801.oktapreview.com/oauth2/ausbg8o1txTrmRWmb0h7',
-    redirectUri: 'http://localhost:4200/secure/login',
+    url: environment.okta.url,
+    clientId: environment.okta.clientId,
+    issuer: environment.okta.issuer,
+    redirectUri: environment.okta.redirectUri,
   });
 
   public get isLoggedIn() {
