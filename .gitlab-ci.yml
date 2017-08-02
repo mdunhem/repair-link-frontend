@@ -4,9 +4,11 @@ image: mdunhem/docker-angular-jenkins:1.1.1
 variables:
   GIT_SSL_NO_VERIFY: "true"
 
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
-  paths:
-  - node_modules/
+  key: "$CI_COMMIT_REF_NAME"
+  untracked: true
 
 stages:
   - install
@@ -37,4 +39,11 @@ build:
 deploy_prod:
   stage: deploy
   script:
-    - echo "Deployment not set up yet."
+    - echo "Deploy to production server - not implemented yet"
+  environment:
+    name: production
+    url: https://example.com
+  when: manual
+  only:
+    - master
+
