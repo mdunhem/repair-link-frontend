@@ -6,6 +6,7 @@
 
 // Table of Contents
 //
+// Custom variables / mixins
 // Colors
 // Options
 // Spacing
@@ -36,6 +37,15 @@ $main-layout-border-color: #d3d3d3;
   }
 }
 
+$background-image-url: url('/assets/header.jpg');
+
+@mixin background-cover() {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
 // General variable structure
 //
 // Variable format should follow the `$component-modifier-state-property` order.
@@ -50,6 +60,7 @@ $gray:                      #55595c !default;
 $gray-light:                #818a91 !default;
 $gray-lighter:              #eceeef !default;
 $gray-lightest:             #f7f7f9 !default;
+$gray-light-translucent:    rgba(0, 0, 0, 0.6);
 
 $brand-primary:             #0275d8 !default;  //rgb(33,150,243)
 $brand-success:             #5cb85c !default;
@@ -858,3 +869,10 @@ $pre-bg:                      #f7f7f9 !default;
 $pre-color:                   $gray-dark !default;
 $pre-border-color:            #ccc !default;
 $pre-scrollable-max-height:   340px !default;
+
+// Footer
+
+$footer-background-color: rgba(30, 30, 30, 0.97);
+$footer-text-color: #DDDDDD;
+$footer-text-dark-color: #777777;
+$footer-hr-border-color: #444444;

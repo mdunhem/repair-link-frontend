@@ -1,0 +1,24 @@
+@import '../../../variables';
+
+.jumbotron {
+    &.feature {
+        color: $gray-lighter;
+        min-height: 100%;
+        @include background-cover();
+        background-position: center;
+        background-image: $background-image-url;
+    }
+
+    .content {
+        &.feature {
+            text-align: center;
+            padding: 100px 15px 100px;
+            width: 100%;
+            background-color: $gray-light-translucent;
+        }
+    }
+}
+
+hr {
+    border-color: white;
+}

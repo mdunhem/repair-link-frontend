@@ -1,28 +1,46 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { TitlebarComponent } from './titlebar/titlebar.component';
+import { SingleColumnLayoutComponent } from './single-column-layout/single-column-layout.component';
+import { FooterComponent } from './footer/footer.component';
+import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { LayoutRowComponent } from './layout-row/layout-row.component';
+import { LayoutSectionComponent } from './layout-section/layout-section.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule
   ],
   exports: [
+    FormsModule,
     NavbarComponent,
     SidenavComponent,
     MainLayoutComponent,
-    TitlebarComponent
+    SingleColumnLayoutComponent,
+    TitlebarComponent,
+    FooterComponent,
+    JumbotronComponent,
+    LayoutRowComponent,
+    LayoutSectionComponent
   ],
   declarations: [
     NavbarComponent,
     SidenavComponent,
     MainLayoutComponent,
-    TitlebarComponent
+    TitlebarComponent,
+    SingleColumnLayoutComponent,
+    FooterComponent,
+    JumbotronComponent,
+    LayoutRowComponent,
+    LayoutSectionComponent
   ],
   providers: [
   ]
