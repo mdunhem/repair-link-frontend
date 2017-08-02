@@ -1,0 +1,49 @@
+image: mdunhem/docker-angular-jenkins:1.1.1
+
+## Hack for now to get this to work
+variables:
+  GIT_SSL_NO_VERIFY: "true"
+
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  key: "$CI_COMMIT_REF_NAME"
+  untracked: true
+
+stages:
+  - install
+  - test
+  - build
+  - deploy
+
+install:
+  stage: install
+  script:
+    - npm install
+
+lint:
+  stage: test
+  script:
+    - npm run lint
+
+test:
+  stage: test
+  script:
+    - npm run test
+
+build:
+  stage: build
+  script:
+    - npm run build:prod
+
+deploy_prod:
+  stage: deploy
+  script:
+    - echo "Deploy to production server - not implemented yet"
+  environment:
+    name: production
+    url: https://example.com
+  when: manual
+  only:
+    - master
+
