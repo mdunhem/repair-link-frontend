@@ -6,6 +6,6 @@ export const environment = {
     url: 'https://dev-763801.oktapreview.com/',
     clientId: '0oabg1qdk8K1paWkI0h7',
     issuer: 'https://dev-763801.oktapreview.com/oauth2/ausbg8o1txTrmRWmb0h7',
-    redirectUri: 'https://repair-link-staging.herokuapp.com/secure/login',
+    redirectUri: 'http://411greenf17.cs.odu.edu/secure/login',
   }
 };
