@@ -21,12 +21,15 @@ export class AuthService {
   });
 
   public get isLoggedIn() {
-    // Checks if there is a current accessToken in the TokenManger.
-    return !!this.oktaAuth.tokenManager.get('accessToken');
+    // First check if there is even a token, then make sure it hasn't expired
+    if (!!this.oktaAuth.tokenManager.get('accessToken')) {
+      return new Date(this.oktaAuth.tokenManager.get('accessToken').expiresAt * 1000) > new Date();
+    }
+    return false;
   }
 
   public get authHeader() {
-    return 'Bearer ' + this.oktaAuth.tokenManager.get('accessToken');
+    return 'Bearer ' + this.oktaAuth.tokenManager.get('accessToken').accessToken;
   }
 
   redirectUrl: String;
