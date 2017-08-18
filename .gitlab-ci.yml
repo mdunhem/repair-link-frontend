@@ -16,6 +16,20 @@ stages:
   - build
   - deploy
 
+before_script:
+  # Install ssh-agent if not already installed, it is required by Docker.
+  # (change apt-get to yum if you use a CentOS-based image)
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+
+  # Run ssh-agent (inside the build environment)
+  - eval $(ssh-agent -s)
+
+  # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+
+  - mkdir -p ~/.ssh
+  - '[[ -f /.dockerenv ]] && echo "$SSH_SERVER_HOSTKEYS" > ~/.ssh/known_hosts'
+
 install:
   stage: install
   script:
@@ -40,7 +54,7 @@ deploy_prod:
   stage: deploy
   script:
     - echo "Deploy to production server - not implemented yet"
-    - ls .
+    - rsync -avz -e "ssh" ./dist deploy@411greenf17-mgmt.cs.odu.edu:/var/www/repair-link-frontend/dist
   environment:
     name: production
     url: http://411greenf17.cs.odu.edu
