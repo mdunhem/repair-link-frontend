@@ -1,4 +1,4 @@
-image: mdunhem/docker-angular-jenkins:1.1.1
+image: mdunhem/docker-angular-jenkins:1.1.2
 
 ## Hack for now to get this to work
 variables:
@@ -39,10 +39,10 @@ build:
 deploy_prod:
   stage: deploy
   script:
-    - echo "Deploy to production server - not implemented yet"
+    - rsync -vr ./dist/* /dist
   environment:
     name: production
-    url: https://example.com
+    url: http://411greenf17.cs.odu.edu
   when: manual
   only:
     - master
