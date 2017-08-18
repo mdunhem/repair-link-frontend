@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import { UsersService } from '../shared/users.service';
+import { User } from '../shared/user';
 
 @Component({
   selector: 'repair-users-list',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersListComponent implements OnInit {
 
-  constructor() { }
+  public users: Observable<Array<User>>;
+
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
+    this.users = this.usersService.getUsers();
   }
 
 }

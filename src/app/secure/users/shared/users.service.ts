@@ -1,22 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
-import { AuthService } from '../../auth/auth.service';
+import { environment } from '../../../../environments/environment';
 import { User } from './user';
 
 @Injectable()
 export class UsersService {
 
-  constructor(private authService: AuthService, private http: HttpClient) { }
+  private apiUrl = environment.apiUrl;
 
-  getUsers(): Observable<User[]> {
+  constructor(private http: HttpClient) { }
 
-    // get users from api
-    return this.http.get('/api/users')
-        .map((response: any) => response.json());
+  public getUsers(): Observable<Array<User>> {
+    return this.http.get<any[]>(`${this.apiUrl}/users`)
+      .map<any[], User[]>(values => {
+        const users = [];
+        values.forEach(value => {
+          console.log(value);
+          users.push(new User(value));
+        });
+        return users;
+      });
   }
 
 }
