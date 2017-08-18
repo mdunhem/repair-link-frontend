@@ -40,10 +40,11 @@ deploy_prod:
   stage: deploy
   script:
     - echo "Deploy to production server - not implemented yet"
+    - ls .
   environment:
     name: production
-    url: https://example.com
+    url: http://411greenf17.cs.odu.edu
   when: manual
-  only:
-    - master
+#   only:
+    # - master
 
