@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://repair-link-api-staging.herokuapp.com/api',
+  apiUrl: 'http://localhost:8080/api',
   projectTitle: 'RepairLink',
   okta: {
     url: 'https://dev-763801.oktapreview.com/',
