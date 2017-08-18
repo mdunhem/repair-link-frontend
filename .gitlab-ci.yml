@@ -54,7 +54,7 @@ deploy_prod:
   stage: deploy
   script:
     - echo "Deploy to production server - not implemented yet"
-    - rsync -avz -e "ssh" ./dist deploy@411greenf17-mgmt.cs.odu.edu:/var/www/repair-link-frontend/dist
+    - rsync --rsync-path=/usr/bin/rsync -avz -e "ssh" ./dist deploy@411greenf17-mgmt.cs.odu.edu:/var/www/repair-link-frontend/dist
   environment:
     name: production
     url: http://411greenf17.cs.odu.edu
