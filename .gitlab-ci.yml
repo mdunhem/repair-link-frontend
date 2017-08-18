@@ -54,7 +54,7 @@ deploy_prod:
   stage: deploy
   script:
     - echo "Deploy to production server - not implemented yet"
-    - rsync -v ./dist /dist
+    - rsync -vr ./dist /dist
   environment:
     name: production
     url: http://411greenf17.cs.odu.edu
