@@ -16,9 +16,6 @@ stages:
   - build
   - deploy
 
-before_script:
-  - pwd
-
 install:
   stage: install
   script:
@@ -42,12 +39,11 @@ build:
 deploy_prod:
   stage: deploy
   script:
-    - echo "Deploy to production server - not implemented yet"
     - rsync -vr ./dist/* /dist
   environment:
     name: production
     url: http://411greenf17.cs.odu.edu
   when: manual
-#   only:
-    # - master
+  only:
+    - master
 
