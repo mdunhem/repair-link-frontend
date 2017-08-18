@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label">VIN</label>
+    <div class="col-sm">
+      <input formControlName="vin" type="text" class="form-control" placeholder="VIN">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label">Year</label>
+    <div class="col-sm">
+      <input formControlName="year" type="number" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label">Make</label>
+    <div class="col-sm">
+      <input formControlName="make" type="text" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-4 col-form-label">Model</label>
+    <div class="col-sm">
+      <input formControlName="model" type="text" class="form-control">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-outline-primary">Save</button>
+</form>
+<p>
+  Form: {{ form.value | json }}
+</p>

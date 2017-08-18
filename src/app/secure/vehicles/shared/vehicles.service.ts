@@ -23,7 +23,7 @@ export class VehiclesService {
   public getVehicles(): Observable<Array<Vehicle>> {
     return this.http.get<any[]>(`${this.apiUrl}/vehicles`)
       .map<any[], Vehicle[]>((values, index) => {
-        const vehicles = new Array<Vehicle>();
+        const vehicles = [];
         values.forEach(value => {
           vehicles.push(new Vehicle(value));
         });
@@ -36,6 +36,18 @@ export class VehiclesService {
       .map<any, Vehicle>((value, index) => {
         return new Vehicle(value);
       });
+  }
+
+  public createVehicle(vehicle: Vehicle): Observable<Vehicle> {
+    return this.http.post(`${this.apiUrl}/vehicles`, vehicle);
+  }
+
+  public save(vehicle: Vehicle): Observable<Vehicle> {
+    if (vehicle.id !== null) {
+      return this.http.post(`${this.apiUrl}/vehicles`, vehicle);
+    } else {
+      return this.http.put(`${this.apiUrl}/vehicles`, vehicle);
+    }
   }
 
   public selectVehicle(vehicle: Vehicle) {

@@ -7,6 +7,7 @@ import { VehiclesListComponent } from './vehicles-list/vehicles-list.component';
 import { VehiclesService } from './shared/vehicles.service';
 import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.component';
 import { VehiclesComponent } from './vehicles.component';
+import { VehiclesEditComponent } from './vehicles-edit/vehicles-edit.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { VehiclesComponent } from './vehicles.component';
     SharedModule,
     VehiclesRoutingModule
   ],
-  declarations: [VehiclesListComponent, VehicleDetailComponent, VehiclesComponent],
+  declarations: [VehiclesListComponent, VehicleDetailComponent, VehiclesComponent, VehiclesEditComponent],
   providers: [ VehiclesService ]
 })
 export class VehiclesModule { }

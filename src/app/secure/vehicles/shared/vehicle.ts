@@ -7,11 +7,11 @@
 // }
 
 export interface VehicleParams {
-    id: Number;
-    vin: String;
-    year: Number;
-    make: String;
-    model: String;
+    id?: Number;
+    vin?: String;
+    year?: Number;
+    make?: String;
+    model?: String;
     color?: String;
     trim?: String;
     odometer?: Number;
@@ -21,15 +21,15 @@ export interface VehicleParams {
 
 export class Vehicle {
 
-    id: Number;
+    id: Number | null;
 
-    vin: String;
+    vin: String | null;
 
-    year: Number;
+    year: Number | null;
 
-    make: String;
+    make: String | null;
 
-    model: String;
+    model: String | null;
 
     color: String | null;
 

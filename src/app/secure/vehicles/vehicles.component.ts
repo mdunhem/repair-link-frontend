@@ -32,5 +32,8 @@ export class VehiclesComponent implements OnInit {
 //      console.log(this.route.snapshot);
 //    });
   }
+  public createVehicle() {
+    this.router.navigate(['./create'], { relativeTo: this.route });
+  }
 
 }
