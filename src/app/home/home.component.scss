@@ -1,0 +1,39 @@
+@import '../../variables';
+
+header {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  @include background-cover();
+  background-position: center;
+  background-image: $background-image-url;
+  text-align: center;
+  color: white;
+  .header-content {
+    position: relative;
+    text-align: center;
+    padding: 100px 15px 100px;
+    width: 100%;
+    background-color: $gray-light-translucent;
+  }
+  @media (min-width: 768px) {
+    min-height: 100%;
+    .header-content {
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      padding: 0 50px;
+      .header-content-inner {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+hr {
+  border-color: white;
+}

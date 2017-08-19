@@ -1,0 +1,42 @@
+<repair-jumbotron [feature]="false" [title]="title"></repair-jumbotron>
+
+<repair-layout-section [fluid]="false">
+  <repair-layout-row>
+    <ng-container *ngFor="let teamMember of teamMembers | async; let i = index">
+      <div class="clearfix" *ngIf="i !== 0 && i % 3 == 0"></div>
+      <div class="col-4 py-3">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="assets/img/team/{{ teamMember.image }}" alt="{{ teamMember.name }}">
+          <div class="card-block text-center">
+            <h4 class="card-title">{{ teamMember.name }}</h4>
+            <h6>- {{ teamMember.role }} -</h6>
+            <ng-container *ngFor="let textSection of teamMember.bio">
+              <h3 *ngIf="textSection.heading">{{ textSection.heading }}</h3>
+              <p>{{ textSection.text }}</p>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </repair-layout-row>
+</repair-layout-section>
+
+<repair-layout-section>
+  <ng-container *ngFor="let mentor of mentors | async">
+    <repair-layout-row>
+      <div class="col text-center">
+        <h2>{{ mentor.name }}</h2>
+        <img src="assets/img/team/{{ mentor.image }}" class="img-fluid rounded" alt="{{ mentor.name }}">
+        <img src="assets/img/team/{{ mentor.companyLogo }}" class="img-fluid rounded" alt="{{ mentor.name }}">
+      </div>
+    </repair-layout-row>
+    <repair-layout-row>
+      <div class="col">
+        <ng-container *ngFor="let textSection of mentor.bio">
+          <h3 *ngIf="textSection.heading">{{ textSection.heading }}</h3>
+          <p>{{ textSection.text }}</p>
+        </ng-container>
+      </div>
+    </repair-layout-row>
+  </ng-container>
+</repair-layout-section>

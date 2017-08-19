@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '', loadChildren: 'app/home/home.module#HomeModule' },
+  { path: '', component: HomeComponent },
+  { path: 'about', loadChildren: 'app/about-us/about-us.module#AboutUsModule' },
   { path: 'secure', loadChildren: 'app/secure/secure.module#SecureModule' }
 ];
 

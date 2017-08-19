@@ -1,1 +1,4 @@
+<repair-navbar *ngIf="!isSecureLayout" [navItems]="navItems" [isDark]="true"></repair-navbar>
 <router-outlet></router-outlet>
+<repair-footer *ngIf="!isSecureLayout"></repair-footer>
+
