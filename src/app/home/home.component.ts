@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NavItems } from '../../shared/nav-items';
+import { NavItems } from '../shared/nav-items';
 
 @Component({
   selector: 'repair-home',
@@ -14,7 +14,10 @@ export class HomeComponent implements OnInit {
       { name: 'About Us', route: '/about' },
       { name: 'Log In', route: '/secure' }
     ]
-  }
+  };
+
+  title = 'RepairLink';
+  subTitle = 'CS 411 Green Team';
 
   constructor() { }
 

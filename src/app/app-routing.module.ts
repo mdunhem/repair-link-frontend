@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
-  { path: '', loadChildren: 'app/home/home.module#HomeModule' },
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutUsComponent },
   { path: 'secure', loadChildren: 'app/secure/secure.module#SecureModule' }
 ];
 
