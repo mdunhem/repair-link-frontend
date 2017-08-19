@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { team } from './team';
+import { TeamMember } from './team-member.model';
+import { team, mentor } from './team';
 
 @Injectable()
 export class TeamMemberService {
@@ -9,6 +10,10 @@ export class TeamMemberService {
 
   public getTeamMembers(): Observable<TeamMember[]> {
     return Observable.of(team);
+  }
+
+  public getMentors(): Observable<TeamMember[]> {
+    return Observable.of(mentor);
   }
 
 }

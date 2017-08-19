@@ -1,8 +1,7 @@
-class TeamMember {
-  constructor(
-    public name: string,
-    public image: string,
-    public role: string,
-    public bio: string
-  ) {}
+export interface TeamMember {
+  name: string;
+  image: string;
+  companyLogo?: string;
+  role?: string;
+  bio: { heading: string | boolean, text: string }[];
 }
