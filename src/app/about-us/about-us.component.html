@@ -2,42 +2,18 @@
 
 <repair-layout-section [fluid]="false">
   <repair-layout-row>
-    <div class="col-4 py-3">
-      <div class="card">
-        <img class="card-img-top img-fluid" src="/~410green/img/team/adeel-sian-bio-pic.png" alt="adeel">
-        <div class="card-block text-center">
-          <h4 class="card-title">Adeel Sian</h4>
-          <h6>- Quality Assurance/Testing Engineer -</h6>
-          <p>Adeel Sian is a senior majoring in Computer Science with a minor in Computer Engineering who plans on graduating in fall 2017. He is from Newport News, Virginia and plans on working as a software developer after graduation. In his free time he enjoys working out and watching Football.</p>
+    <ng-container *ngFor="let teamMember of teamMembers | async; let i = index">
+      <div class="clearfix" *ngIf="i !== 0 && i % 3 == 0"></div>
+      <div class="col-4 py-3">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="assets/img/team/{{ teamMember.image }}" alt="{{ teamMember.name }}">
+          <div class="card-block text-center">
+            <h4 class="card-title">{{ teamMember.name }}</h4>
+            <h6>- {{ teamMember.role }} -</h6>
+            <p>{{ teamMember.bio }}</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-4 py-3">
-      <div class="card">
-        <img class="card-img-top img-fluid" src="/~410green/img/team/christopher-harrison-bio-pic.jpg" alt="christopher">
-        <div class="card-block text-center">
-          <h4 class="card-title">Chistopher Harrison</h4>
-          <h6>- Database Architect -</h6>
-          <p>Christopher Harrison is a senior majoring in Computer Science who plans on graduating in Fall 2017. He has lived in Poquoson Virginia his whole life. He currently is working as a contractor out at NASA Langley Research Center doing software development and hopes to continue his work after graduation. He enjoys playing video games whenever he has time.</p>
-        </div>
-      </div>
-    </div>
-  </repair-layout-row>
-  <repair-layout-row>
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-    </div>
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-    </div>
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
-    </div>
+    </ng-container>
   </repair-layout-row>
 </repair-layout-section>

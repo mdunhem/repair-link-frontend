@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TeamMemberService } from './shared/team-member.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'repair-about-us',
@@ -9,9 +11,12 @@ export class AboutUsComponent implements OnInit {
 
   title = 'Our Team';
 
-  constructor() { }
+  teamMembers: Observable<TeamMember[]>;
+
+  constructor(private teamMemberService: TeamMemberService) { }
 
   ngOnInit() {
+    this.teamMembers = this.teamMemberService.getTeamMembers();
   }
 
 }
