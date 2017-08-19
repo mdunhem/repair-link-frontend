@@ -1,12 +1,13 @@
 @import '../../../variables';
 
 .jumbotron {
+    margin-top: 2rem;
     &.feature {
+        margin-top: 0;
         color: $gray-lighter;
         min-height: 100%;
         @include background-cover();
-        background-position: center;
-        background-image: $background-image-url;
+        background: $background-image-url center;
     }
 
     .content {
