@@ -13,16 +13,17 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  public getUsers(): Observable<Array<User>> {
-    return this.http.get<any[]>(`${this.apiUrl}/users`)
-      .map<any[], User[]>(values => {
-        const users = [];
-        values.forEach(value => {
-          console.log(value);
-          users.push(new User(value));
-        });
-        return users;
-      });
+  public getUsers(): Observable<Array<any>> {
+    return this.http.get<any[]>(`${this.apiUrl}/users/admin/listusers`);
+    // return this.http.get<any[]>(`${this.apiUrl}/users`)
+    //   .map<any[], User[]>(values => {
+    //     const users = [];
+    //     values.forEach(value => {
+    //       console.log(value);
+    //       users.push(new User(value));
+    //     });
+    //     return users;
+    //   });
   }
 
 }

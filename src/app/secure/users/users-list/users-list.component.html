@@ -1,4 +1,4 @@
 <div *ngFor="let user of users | async" class="p-1">
-    {{user.name}}
+    {{user | json}}
 </div>
 <router-outlet></router-outlet>
