@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as OktaAuth from '@okta/okta-auth-js/dist/okta-auth-js.min.js';
 
 import { environment } from '../../../environments/environment';
+import { tryCatch } from 'rxjs/util/tryCatch';
 
 /**
  * This service handles all authentication and authorization. It validates
@@ -64,9 +65,19 @@ export class AuthService {
    * @returns {boolean}
    */
   public hasRoles(rolesToCheck: string[]): boolean {
-    const token = this.oktaAuth.tokenManager.get('accessToken').accessToken;
-    const roles: string[] = this.oktaAuth.token.decode(token).payload.roles;
-    return rolesToCheck.every(role => roles.includes(role));
+    // No need to check for roles if there aren't any to check for
+    if (rolesToCheck.length === 0) {
+      return true;
+    }
+
+    // This will error if there is no token stored so we need to protect against it
+    try {
+      const token = this.oktaAuth.tokenManager.get('accessToken').accessToken;
+      const roles: string[] = this.oktaAuth.token.decode(token).payload.roles;
+      return rolesToCheck.every(role => roles.includes(role));
+    } catch (error) {
+      return false;
+    }
   }
 
   /**
