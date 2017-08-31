@@ -1,43 +1,92 @@
 import { Injectable } from '@angular/core';
 import {
-  CanActivate, Router,
+  CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   CanActivateChild,
-  NavigationExtras,
   CanLoad, Route
 } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 import { AuthService } from './auth.service';
 
 @Injectable()
-export class SecureAuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+export class SecureAuthGuard implements CanActivate, CanActivateChild, CanLoad {
+  constructor(private authService: AuthService) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  /**
+   * Verifies if user can activate the provided route.
+   *
+   * It first checks if the user is logged in and then verifies that the user has
+   * the needed roles assigned.
+   *
+   * @public
+   * @param {ActivatedRouteSnapshot} route
+   * @param {RouterStateSnapshot} state
+   * @return {boolean}
+   */
+  public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const url: string = state.url;
-
-    return this.checkLogin(url);
+    let roles: string[] = [];
+    if (route.data && route.data.roles) {
+      roles = route.data.roles;
+    }
+    return this.checkIfLoggedIn(url, roles);
   }
 
-  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  /**
+   * Verifies if user can activate the requested child routes.
+   *
+   * @public
+   * @param {ActivatedRouteSnapshot} route
+   * @param {RouterStateSnapshot} state
+   * @return {boolean}
+   */
+  public canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     return this.canActivate(route, state);
   }
 
-  canLoad(route: Route): boolean {
+  /**
+   * Verifies if user can load the needed module.
+   *
+   * @public
+   * @param {Route} route
+   * @return {boolean}
+   */
+  public canLoad(route: Route): boolean {
     const url = `/${route.path}`;
-
-    return this.checkLogin(url);
+    return this.checkIfLoggedIn(url);
   }
 
-  checkLogin(url: string): boolean {
+  /**
+   * Checks if there is currently a logged in user and then checks if the current user has
+   * the needed roles assigned.
+   *
+   * If the user is not logged in then the requested url is stored in local cache and then
+   * delegates to the AuthService to log the user in. After logging in, the requested url
+   * will be used to redirect the user to that page, although it will still pass through
+   * the guard again and validate that the user can load the requested page.
+   *
+   * @private
+   * @param {string} url
+   * @param {string[]} roles
+   * @return {boolean}
+   */
+  private checkIfLoggedIn(url: string, roles: string[] = []): boolean {
     if (this.authService.isLoggedIn) {
-      return true;
+      return this.checkRoles(roles);
     }
     localStorage.setItem('returnUrl', url);
     this.authService.login();
-    // this.authService.redirectUrl = url;
-    // this.router.navigate(['/secure/login'], { queryParams: { returnUrl: url }});
     return false;
+  }
+
+  /**
+   * Validates if the current user has the required roles necessary to load the requested page.
+   *
+   * @private
+   * @param {string[]} roles - Array of roles to validate
+   * @returns {boolean}
+   */
+  private checkRoles(roles: string[]): boolean {
+    return this.authService.hasRoles(roles);
   }
 }
