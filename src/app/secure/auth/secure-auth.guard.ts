@@ -16,8 +16,11 @@ export class SecureAuthGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const url: string = state.url;
-
-    return this.checkLogin(url);
+    let roles: string[] = [];
+    if (route.data && route.data.roles) {
+      roles = route.data.roles;
+    }
+    return this.checkLogin(url, roles);
   }
 
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
@@ -30,14 +33,23 @@ export class SecureAuthGuard implements CanActivate {
     return this.checkLogin(url);
   }
 
-  checkLogin(url: string): boolean {
+  checkLogin(url: string, roles: string[] = []): boolean {
     if (this.authService.isLoggedIn) {
-      return true;
+      return this.checkRoles(roles);
     }
     localStorage.setItem('returnUrl', url);
     this.authService.login();
-    // this.authService.redirectUrl = url;
-    // this.router.navigate(['/secure/login'], { queryParams: { returnUrl: url }});
     return false;
+  }
+
+  /**
+   * Validates if the current user has the required roles necessary to load the requested page.
+   *
+   * @private
+   * @param {string[]} roles - Array of roles to validate
+   * @returns {boolean}
+   */
+  private checkRoles(roles: string[]): boolean {
+    return this.authService.hasRoles(roles);
   }
 }
