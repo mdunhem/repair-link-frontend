@@ -11,9 +11,11 @@
 
   <div #menu class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul *ngIf="navItems" class="navbar-nav ml-auto px-1">
-      <li *ngFor="let navItem of navItems.items" routerLinkActive="active" class="nav-item">
+      <ng-container *ngFor="let navItem of navItems.items">
+        <li *ngIf="canActivate(navItem.roles)" routerLinkActive="active" class="nav-item">
           <a class="nav-link" [routerLink]="[navItem.route]">{{ navItem.name }}</a>
-      </li>
+        </li>
+      </ng-container>
     </ul>
     <form (ngSubmit)="onSubmit()" *ngIf="hasSearchBox" class="my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" [(ngModel)]="searchField" name="searchField">

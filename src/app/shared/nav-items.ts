@@ -1,3 +1,3 @@
 export interface NavItems {
-  items: { name: string, route: string }[];
+  items: { name: string, route: string, roles?: string[] }[];
 }

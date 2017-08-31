@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, ElementRef, ViewChild, EventEmitter } from '@angular/core';
 
 import { NavItems } from '../nav-items';
+import { AuthService } from '../../secure/auth/auth.service';
 
 @Component({
   selector: 'repair-navbar',
@@ -24,7 +25,7 @@ export class NavbarComponent implements OnInit {
 
   public searchField = '';
 
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -36,6 +37,10 @@ export class NavbarComponent implements OnInit {
 
   public toggleMenu() {
     this.menu.nativeElement.classList.toggle('show');
+  }
+
+  public canActivate(roles: string[] = []): boolean {
+    return this.authService.hasRoles(roles);
   }
 
 }

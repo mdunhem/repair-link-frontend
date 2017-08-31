@@ -1,5 +1,7 @@
 <ul class="nav flex-column">
-  <li *ngFor="let navItem of navItems.items" routerLinkActive="active" class="nav-item">
-    <a class="nav-link" [routerLink]="[navItem.route]">{{ navItem.name }}</a>
-  </li>
+  <ng-container *ngFor="let navItem of navItems.items">
+    <li *ngIf="canActivate(navItem.roles)" routerLinkActive="active" class="nav-item">
+      <a class="nav-link" [routerLink]="[navItem.route]">{{ navItem.name }}</a>
+    </li>
+  </ng-container>
 </ul>
