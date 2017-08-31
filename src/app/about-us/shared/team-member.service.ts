@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { TeamMember } from './team-member.model';
 import { team, mentor } from './team';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class TeamMemberService {
