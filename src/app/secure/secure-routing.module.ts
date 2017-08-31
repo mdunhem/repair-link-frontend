@@ -15,7 +15,7 @@ const routes: Routes = [
     children: [
       { path: '', loadChildren: 'app/secure/dashboard/dashboard.module#DashboardModule' },
       { path: 'vehicles', loadChildren: 'app/secure/vehicles/vehicles.module#VehiclesModule' },
-      { path: 'users', loadChildren: 'app/secure/users/users.module#UsersModule' }
+      { path: 'users', loadChildren: 'app/secure/users/users.module#UsersModule', data: { roles: ['ROLE_ADMIN'] } }
     ]
   },
   { path: 'login', component: LoginComponent },
