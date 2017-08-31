@@ -20,16 +20,23 @@ export class AuthService {
     redirectUri: environment.okta.redirectUri,
   });
 
+  /**
+   * Checks if there is a logged in user. It first checks if there is a current token
+   * and then makes sure that it has not expired. If both checks are good, then the
+   * user is considered as logged in.
+   *
+   * @returns {boolean}
+   */
   public get isLoggedIn() {
-    // Checks if there is a current accessToken in the TokenManger.
-    return !!this.oktaAuth.tokenManager.get('accessToken');
+    if (!!this.oktaAuth.tokenManager.get('accessToken')) {
+      return new Date(this.oktaAuth.tokenManager.get('accessToken').expiresAt * 1000) > new Date();
+    }
+    return false;
   }
 
   public get authHeader() {
     return 'Bearer ' + this.oktaAuth.tokenManager.get('accessToken');
   }
-
-  redirectUrl: String;
 
   login() {
     // Launches the login redirect.
