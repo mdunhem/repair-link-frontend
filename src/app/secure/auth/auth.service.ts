@@ -39,6 +39,20 @@ export class AuthService {
     });
   }
 
+  /**
+   * Utility method used to check if the current user has all of the roles in the
+   * supplied list of roles. The current user must have all of the supplied roles
+   * for this to return true.
+   *
+   * @param {string[]} rolesToCheck - Array of roles to validate
+   * @returns {boolean}
+   */
+  public hasRoles(rolesToCheck: string[]): boolean {
+    const token = this.oktaAuth.tokenManager.get('accessToken').accessToken;
+    const roles: string[] = this.oktaAuth.token.decode(token).payload.roles;
+    return rolesToCheck.every(role => roles.includes(role));
+  }
+
   async handleAuthentication() {
     const tokens = await this.oktaAuth.token.parseFromUrl();
     tokens.forEach(token => {
