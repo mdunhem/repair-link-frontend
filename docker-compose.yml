@@ -8,7 +8,5 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
-    volumes:
-      - ./dist:/var/www/repair-link-frontend/dist
     ports:
       - "80:80"
