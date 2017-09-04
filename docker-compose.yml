@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  repair-link-frontend:
+    container_name: repair-link-frontend
+    image: repair-link-frontend
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./dist:/usr/share/nginx/html
+    ports:
+      - "80:80"
