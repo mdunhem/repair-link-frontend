@@ -39,8 +39,6 @@ build:
 deploy:
   stage: deploy
   image: docker:latest
-  services:
-     - docker:dind
   only:
     - tags
   script:

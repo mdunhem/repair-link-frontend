@@ -9,6 +9,6 @@ services:
       context: .
       dockerfile: docker/Dockerfile
     volumes:
-      - ./dist:/usr/share/nginx/html
+      - ./dist:/var/www/repair-link-frontend/dist
     ports:
       - "80:80"
